@@ -411,7 +411,7 @@ def average_shortest_path_length(G, weight=None, method=None):
 
 #Main Fucntion Enter
 '''
-Yang Xiao Assignment02 main function Enter
+Author: Yang Xiao 
 '''
 if __name__ == '__main__':
 
@@ -420,23 +420,25 @@ if __name__ == '__main__':
     print('login:',twitter_api)
 
     #screen_name start point
-    screen_name = 'edmundyu1001 '
+    screen_name = 'RealTrump '
     G = nx.Graph()
 
 
-    #Retrieve his/her reciprocal_friends witch the most popular fives by 4 th depth
-    reciprocal_friends, reciprocal_friends_dict,  G = crawl_followers(twitter_api, screen_name, Graph=G, depth = 4)
+    #Retrieve his/her reciprocal_friends witch the most popular fives by n th depth
+    n = input('Retrieve his/her reciprocal_friends witch the most popular fives by n th depth:\n')
+    n = int(n)
+    reciprocal_friends, reciprocal_friends_dict,  G = crawl_followers(twitter_api, screen_name, Graph=G, depth = n)
 
-    print('-------------question 1-4----------------')
+    print('-------------1----------------')
     print(reciprocal_friends)
 
-    print('-------------question 5----------------')
+    print('-------------2----------------')
     print("Number of Nodes ={0}.".format(G.number_of_nodes()))
     print("Number of Edges ={0}.".format(G.number_of_edges()))
     print("Node list = ", G.nodes())
     print("Edge list = ", G.edges())
 
-    print('-------------question 6----------------')
+    print('-------------3----------------')
     print("Diameter = ",diameter(G))
     print("Averge Distance: ",average_shortest_path_length(G))
 
